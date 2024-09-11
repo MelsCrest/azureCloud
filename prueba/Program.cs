@@ -1,34 +1,25 @@
-﻿/*
-//SECUENCIAS DE ESCAPE
-Console.WriteLine("Hello\nWorld!"); //Salto de línea
-Console.WriteLine("Hello\tWorld!"); //Tabulador
-Console.WriteLine(@"Hello\nWorld!"); //Con la @ no necesitas usar \. Aquí aparecería \n al imprimir
-Console.WriteLine(@"Hello World!"); //La @ respeta el espacio
-Console.WriteLine("Hello \"World\""); // \"\" para escribir las comillas a World
-Console.WriteLine(@"c\source\repos"); // Con la @ respeta las \ sin entenderlas como secuencia de escape
-Console.WriteLine("c\\source\\repos"); //\\ para que muestre \ y no la entienda como secuencia de escape 
-Console.WriteLine(@"    c:\source\repos    
-        (this is where your code goes)"); //Elimina espacio en blanco al inicio. Respeta el salto de línea
+﻿//Variables y concatenaciones
+//Opcion 1
+string firstName = "Bob";
+string greeting = "Hello";
+string message = greeting + " " + firstName + "!"; //guardamos la concatenación con las variables en una variable que luego imprimimos
+Console.WriteLine(message);
+//Opcion 2
+Console.WriteLine(greeting + " " + firstName + "!"); //concateno las variables e imprimo directamente
+//Opcion 3
+string message1 = $"{greeting} {firstName}!"; //uso $"" para escribir dentro el mensaje y meto las variables entre llaves {}. Se guarda en una variable que luego se imprime
+Console.WriteLine(message1);
+/*Se modifica el mensaje de la primera variable "mensaje" al quitar String
+message = $"{greeting} {firstName}!"; //uso $"" para escribir dentro el mensaje y meto las variables entre llaves {}. Se guarda en una variable que luego se imprime
+Console.WriteLine(message);*/
 
-// CÓDIGO PARA GENERAR FACTURAS
-Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ... \n");
-Console.WriteLine("Invoice: 1021\t\tComplete!");
-Console.WriteLine("Invoice: 1022\t\tComplete!");
-Console.WriteLine("\nOutput Directory:\t");
+Console.Clear(); //Hace que todo el código anterior no aparezca
+int version = 11;
+string updateText = "Update to Windows";
+message = $"{updateText} {version}";
+Console.WriteLine(message);
 
-// CARACTERES CODIFICADOS
-// Kon'nichiwa World
-Console.WriteLine("\u3053\u3093\u306B\u3061\u306F World!");*/
-
-// CÓDIGO PARA GENERAR FACTURAS
-Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ...\n");
-Console.WriteLine("Invoice: 1021\t\tComplete!");
-Console.WriteLine("Invoice: 1022\t\tComplete!");
-Console.WriteLine("\nOutput Directory:\t");
-Console.Write(@"c:\invoices");
-
-// To generate Japanese invoices:
-// Nihon no seikyū-sho o seisei suru ni wa:
-Console.Write("\n\n\u65e5\u672c\u306e\u8acb\u6c42\u66f8\u3092\u751f\u6210\u3059\u308b\u306b\u306f\uff1a\n\t");
-// User command to run an application
-Console.WriteLine(@"c:\invoices\app.exe -j");
+Console.Clear();
+string projectName = "First-Project";
+var path = $@"C:\Output\{projectName}\Data"; //guardas en una variable la ruta
+Console.WriteLine(path);
