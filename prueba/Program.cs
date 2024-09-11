@@ -1,25 +1,16 @@
-﻿//Variables y concatenaciones
-//Opcion 1
-string firstName = "Bob";
-string greeting = "Hello";
-string message = greeting + " " + firstName + "!"; //guardamos la concatenación con las variables en una variable que luego imprimimos
-Console.WriteLine(message);
-//Opcion 2
-Console.WriteLine(greeting + " " + firstName + "!"); //concateno las variables e imprimo directamente
-//Opcion 3
-string message1 = $"{greeting} {firstName}!"; //uso $"" para escribir dentro el mensaje y meto las variables entre llaves {}. Se guarda en una variable que luego se imprime
-Console.WriteLine(message1);
-/*Se modifica el mensaje de la primera variable "mensaje" al quitar String
-message = $"{greeting} {firstName}!"; //uso $"" para escribir dentro el mensaje y meto las variables entre llaves {}. Se guarda en una variable que luego se imprime
-Console.WriteLine(message);*/
+﻿//DESAFIO
+string projectName = "ACME";
+string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
+Console.WriteLine($@"View English output:
+    c:\Exercise\{projectName}\data.txt");
+Console.Write($@"{russianMessage}:
+    c:\Exercise\{projectName}\ru-RU\data.txt");
+/*
+//RESULTADO DESAFIO
+string projectName = "ACME";
+string englishLocation = $@"c:\Exercise\{projectName}\data.txt";
+Console.WriteLine($"View English output:\n\t\t{englishLocation}\n");
 
-Console.Clear(); //Hace que todo el código anterior no aparezca
-int version = 11;
-string updateText = "Update to Windows";
-message = $"{updateText} {version}";
-Console.WriteLine(message);
-
-Console.Clear();
-string projectName = "First-Project";
-var path = $@"C:\Output\{projectName}\Data"; //guardas en una variable la ruta
-Console.WriteLine(path);
+string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
+string russianLocation = $@"c:\Exercise\{projectName}\ru-RU\data.txt";
+Console.WriteLine($"{russianMessage}:\n\t\t{russianLocation}\n");*/
