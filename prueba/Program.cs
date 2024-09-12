@@ -1,41 +1,79 @@
-using System.Text; //importar lenguaje
+int firstNumber = 3;
+int secondNumber = 7;
+// int firstNumber = 3, secondNumber = 7;
+Console.WriteLine(firstNumber + secondNumber);
 
-//DESAFIO
-string projectName = "ACME";
-string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
-Console.WriteLine($@"View English output
-    c:\Exercise\{projectName}\data.txt");
-Console.Write($@"{russianMessage}:
-    c:\Exercise\{projectName}\ru-RU\data.txt");
-/*
-//RESULTADO DESAFIO
-string projectName = "ACME";
-string englishLocation = $@"c:\Exercise\{projectName}\data.txt";
-Console.WriteLine($"View English output:\n\t\t{englishLocation}\n");
+string firstName = "Bob";
+int widgetsSold = 7;
+Console.WriteLine(firstName + " sold " + widgetsSold + " widgets.");
+Console.WriteLine(firstName + " sold " + widgetsSold + 7 + " widgets."); //El 7 se concatena
+Console.WriteLine(firstName + " sold " + (widgetsSold + 7) + " widgets."); //Se realiza la suma de valores
 
-string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
-string russianLocation = $@"c:\Exercise\{projectName}\ru-RU\data.txt";
-Console.WriteLine($"{russianMessage}:\n\t\t{russianLocation}\n");*/
+Console.Clear();
 
-/*Console.Write("Congratulations!");
-Console.Write(" ");
-Console.Write("You wrote your first lines of code.");*/
+//OPERACIONES MATEMÁTICAS
+firstNumber = 21;
+secondNumber = 13;
 
-// CARACTERES CODIFICADOS
-Console.OutputEncoding = Encoding.UTF8; //cambio de ASCII a UTF8
-// Kon'nichiwa World
-Console.WriteLine("\u3053\u3093\u306B\u3061\u306F World!");
+var suma = firstNumber + secondNumber;
+var resta = firstNumber - secondNumber;
+var multiplicacion = firstNumber * secondNumber;
+var division = firstNumber / secondNumber;
 
-// CÓDIGO PARA GENERAR FACTURAS
-Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ...\n");
-Console.WriteLine("Invoice: 1021\t\tComplete!");
-Console.WriteLine("Invoice: 1022\t\tComplete!");
-Console.WriteLine("\nOutput Directory:\t");
-Console.Write(@"c:\invoices");
+Console.WriteLine($@"El resultado de la suma es {suma}.
+El resultado de la resta es {resta}.
+El resultado de la multiplicacion es {multiplicacion}.
+El resultado de la división es {division}.");
 
-// To generate Japanese invoices:
-// Nihon no seikyū-sho o seisei suru ni wa:
-Console.Write("\n\n\u65e5\u672c\u306e\u8acb\u6c42\u66f8\u3092\u751f\u6210\u3059\u308b\u306b\u306f\uff1a\n\t");
-// User command to run an application
-Console.WriteLine(@"c:\invoices\app.exe -j");
+decimal thirdNumber = 12.5m;
+decimal fourthNumber = 3.6m;
+var divisionDecimales = thirdNumber / fourthNumber;
+Console.WriteLine($@"El resultado de la division de decimales es {divisionDecimales}.");
 
+decimal division2 = (decimal)firstNumber / (decimal)secondNumber;
+Console.WriteLine($@"El resultado de la división con decimales es {division2}");
+
+var resto = firstNumber % secondNumber;
+Console.WriteLine($@"El resto de la división entera es {resto}");
+
+Console.Clear();
+
+//OTRA MANERA DE HACERLO CON MENOS LÍNEAS
+var firstNum = 10m; //decimal
+var secondNum = 7; //entero
+
+Console.WriteLine("Resultado de la suma: " + (firstNum + secondNum));
+Console.WriteLine("Resultado de la resta: " + (firstNum - secondNum));
+Console.WriteLine("Resultado de la multiplicacion: " + (firstNum * secondNum));
+Console.WriteLine("Resultado de la division de enteros: " + ((int)firstNum / secondNum)); //convertimos el número decimal en entero
+Console.WriteLine("Resultado de la division de decimales: " + (firstNum / (decimal)secondNum)); //convertimor el número entero en decimal
+Console.WriteLine("Resultado del resto de la division de enteros: " + (firstNum % secondNum));
+/***************************/
+Console.Clear();
+int value = 1;
+
+value = value + 1;
+Console.WriteLine("First increment: " + value);
+
+value += 1;
+Console.WriteLine("Second increment: " + value);
+
+value++;
+Console.WriteLine("Third increment: " + value);
+
+value = value - 1;
+Console.WriteLine("First decrement: " + value);
+
+value -= 1;
+Console.WriteLine("Second decrement: " + value);
+
+value--;
+Console.WriteLine("Third decrement: " + value);
+/***************************/
+Console.Clear();
+int value1 = 1;
+value1++;
+Console.WriteLine("First: " + value1);
+Console.WriteLine($"Second: {value1++}");
+Console.WriteLine("Third: " + value1);
+Console.WriteLine("Fourth: " + (++value1));
