@@ -1,50 +1,18 @@
-Random random = new Random();
-int daysUntilExpiration = random.Next(21);
-int discountPercentage = 0;
- //do{ //bucle do while para que se ejecute el código cada vez que se da a ESC
-    Console.Clear();//limpiar el código para que cada vuelta se vea bien
-    Console.WriteLine("Show days: " + daysUntilExpiration);
-    if(daysUntilExpiration <= 10 && daysUntilExpiration > 5){
-        Console.WriteLine("Your subscription will expire soon. Renew now!");
-    } else if( daysUntilExpiration <= 5 && daysUntilExpiration > 1 ){
-        discountPercentage = 10;
-        Console.WriteLine($@"Your subscription expires in {daysUntilExpiration} days. 
-        Renew now and save {discountPercentage}%!");
-    
-    } else if(daysUntilExpiration == 1){
-        discountPercentage = 20;
-        Console.WriteLine(@"Your subscription expires within a day!
-    Renew now and save {discountPercentage}%!");
-        
-    } else if(daysUntilExpiration < 1){
-        Console.WriteLine(@"Your subscription has expired.");
-    }
-//}while(Console.ReadKey(true).Key != ConsoleKey.Escape); //cuando se da a ESC se repite el código
+// string[] fraudulentOrderIDs = new string[3];
 
-/* ***************** SOLUCIÓN MICROSOFT (MENOR CÓDIGO) ********************** */
+// fraudulentOrderIDs[0] = "A123";
+// fraudulentOrderIDs[1] = "B456";
+// fraudulentOrderIDs[2] = "C789";
+//fraudulentOrderIDs[3] = "D000"; //si metemos una matriz más (llegando a 4) una vez declarado el tamaño de la matriz (que es 3), da un error = "System.IndexOutOfRangeException: Index was outside the bounds of the array".
 
-// Console.WriteLine("Show days: " + daysUntilExpiration);
-// if (daysUntilExpiration == 0)
-// {
-//     Console.WriteLine("Your subscription has expired.");
-// }
-// else if (daysUntilExpiration == 1)
-// {
-//     Console.WriteLine("Your subscription expires within a day!");
-//     discountPercentage = 20;
-// }
-// else if (daysUntilExpiration <= 5)
-// {
-//     Console.WriteLine($"Your subscription expires in {daysUntilExpiration} days.");
-//     discountPercentage = 10;
-// }
-// else if (daysUntilExpiration <= 10)
-// {
-//     Console.WriteLine("Your subscription will expire soon. Renew now!");
-// }
+//Console.WriteLine(fraudulentOrderIDs[2]);
+// Console.WriteLine($@"El tamaño del array es {fraudulentOrderIDs.Length}");
 
-// if (discountPercentage > 0)
-// {
-//     Console.WriteLine($"Renew now and save {discountPercentage}%.");
-// }
+// for (int i = 0; i < fraudulentOrderIDs.Length; i++){ //para mostrar la longitud del array
+//     Console.WriteLine(fraudulentOrderIDs[i]);
+// };
 
+string[] fraudulentOrderIDs = [ "A123", "B456", "C789" ];
+foreach (var item in fraudulentOrderIDs){ //recorrer un array con foreach
+    Console.WriteLine(item);
+}
