@@ -1,72 +1,50 @@
-Random dice = new Random();
+Random random = new Random();
+int daysUntilExpiration = random.Next(21);
+int discountPercentage = 0;
+ //do{ //bucle do while para que se ejecute el código cada vez que se da a ESC
+    Console.Clear();//limpiar el código para que cada vuelta se vea bien
+    Console.WriteLine("Show days: " + daysUntilExpiration);
+    if(daysUntilExpiration <= 10 && daysUntilExpiration > 5){
+        Console.WriteLine("Your subscription will expire soon. Renew now!");
+    } else if( daysUntilExpiration <= 5 && daysUntilExpiration > 1 ){
+        discountPercentage = 10;
+        Console.WriteLine($@"Your subscription expires in {daysUntilExpiration} days. 
+        Renew now and save {discountPercentage}%!");
+    
+    } else if(daysUntilExpiration == 1){
+        discountPercentage = 20;
+        Console.WriteLine(@"Your subscription expires within a day!
+    Renew now and save {discountPercentage}%!");
+        
+    } else if(daysUntilExpiration < 1){
+        Console.WriteLine(@"Your subscription has expired.");
+    }
+//}while(Console.ReadKey(true).Key != ConsoleKey.Escape); //cuando se da a ESC se repite el código
 
-// int roll1 = dice.Next(1, 7);
-// int roll2 = dice.Next(1, 7);
-// int roll3 = dice.Next(1, 7);
+/* ***************** SOLUCIÓN MICROSOFT (MENOR CÓDIGO) ********************** */
 
-// int total = roll1 + roll2 + roll3;
-
-// Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
-
-// var total = 0;
-// var tirada = 1;
-
-// Console.Write("Dice roll:");
-// for (int i = 0;i < 2; i++){ 
-//     tirada=dice.Next(1,7);
-//     Console.Write($" {tirada} +");
-//     total += tirada;
-// }
-//     tirada=dice.Next(1,7);
-//     Console.Write($" {tirada} ");
-//     total += tirada;
-// Console.WriteLine($"Total {total}");
-
-// //para evitar que se repita el "+" al final hacemos que el bucle se repita 2 veces y luego fuera hacemos la 3º tirada
-
-// if (total <= 9){
-//     Console.WriteLine(" Sorry, you lose.");
-// }else{
-//     Console.WriteLine(" You win!");
-// }
-/*------------------------------------------------------------------*/
-// string message = "The quick brown fox jumps over the lazy dog.";
-// bool result = message.Contains("dog");
-// Console.WriteLine(result);
-
-// if (message.Contains("fox"))
+// Console.WriteLine("Show days: " + daysUntilExpiration);
+// if (daysUntilExpiration == 0)
 // {
-//     Console.WriteLine("What does the fox say?");
+//     Console.WriteLine("Your subscription has expired.");
 // }
-/*------------------------------------------------------------------*/
-
-var total = 0;
-int[] tirada = new int[3];
-Console.Write("Dice roll: ");
-for (int i = 0; i < 3; i++){
-    tirada[i] = dice.Next(1,7);
-    Console.Write($"{tirada[i]} {(i<2?"+ ":"")}");
-    total += tirada[i];
-}
-
-// if (total <= 9){
-//      Console.WriteLine(" Sorry, you lose.");
-// }else{
-//      Console.WriteLine(" You win!");
-// }
-
-// if ((tirada[0] == tirada[1]) || (tirada[1] == tirada[2]) || (tirada[0] == tirada[2]))
+// else if (daysUntilExpiration == 1)
 // {
-//     Console.WriteLine("You rolled doubles! +2 bonus to total!");
-//     total += 2;
+//     Console.WriteLine("Your subscription expires within a day!");
+//     discountPercentage = 20;
+// }
+// else if (daysUntilExpiration <= 5)
+// {
+//     Console.WriteLine($"Your subscription expires in {daysUntilExpiration} days.");
+//     discountPercentage = 10;
+// }
+// else if (daysUntilExpiration <= 10)
+// {
+//     Console.WriteLine("Your subscription will expire soon. Renew now!");
 // }
 
-// Console.WriteLine($"Total: {total}");
+// if (discountPercentage > 0)
+// {
+//     Console.WriteLine($"Renew now and save {discountPercentage}%.");
+// }
 
-if ((tirada[0] == tirada[1]) && (tirada[1] == tirada[2])) 
-{
-    Console.WriteLine("You rolled triples! +6 bonus to total!");
-    total += 6;
-}
-
-Console.WriteLine($"Total: {total}");
