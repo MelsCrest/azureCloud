@@ -1,56 +1,58 @@
-//Crear un array de nombres
-string[] alumnos = { "Sophia", "Andrew", "Emma", "Logan", "Laura" };
+// SKU = Stock Keeping Unit. 
+// SKU value format: <product #>-<2-letter color code>-<size code>
+using System.Diagnostics;
 
-//Crear un array de arrays de enteros. Inicializar directamente
-int[][] notas = new int[][]{
-    new int[] { 90, 86, 87, 98, 100},
-    new int[] { 92, 89, 81, 96, 90},
-    new int[] { 90, 85, 87, 98, 68},
-    new int[] { 90, 95, 87, 88, 96},
-    new int[] { 90, 95, 87, 88, 96}
-};
+string sku = "01-MN-L"; //datos del producto - Sweat shirt Maroon Large
 
-if (alumnos.Length != notas.Length)
-{
-    Console.WriteLine("El número de alumnos no coincide con el número de notas");
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+
+switch (product[0]){
+    case "01":
+    type = "Sweat shirt";
+    break;
+
+    case "02":
+    type = "T-Shirt";
+    break;
+
+    case "03":
+    type = "Sweat pants";
+    break;
+
+    default:
+    type = "Other";
+    break;
 }
-else
-{
-    var indiceAlumno = 0;
-    decimal sumaValores = 0;
 
-    //Mostrar los nombres y sus valores asociados
-    foreach (var alumno in alumnos)
-    {
-
-        //Calcular la suma de notas utilizando un array.sum
-        sumaValores = notas[indiceAlumno].Sum();
-
-        //Calcular la suma de notas con foreach
-        // foreach (var nota in notas[indiceAlumno]){
-        //  sumaValores = sumaValores + nota;   
-        // }
-        var media = sumaValores / (notas[0].Length);
-        indiceAlumno++;
-        sumaValores = 0;
-        var notaLetra = "";
-
-        if (media >= 97) { notaLetra = "A+"; }
-        else if (media >= 93) { notaLetra = "A"; }
-        else if (media >= 90) { notaLetra = "A-"; }
-        else if (media >= 87) { notaLetra = "B+"; }
-        else if (media >= 83) { notaLetra = "B"; }
-        else if (media >= 80) { notaLetra = "B-"; }
-        else if (media >= 77) { notaLetra = "C+"; }
-        else if (media >= 73) { notaLetra = "C"; }
-        else if (media >= 70) { notaLetra = "C-"; }
-        else if (media >= 67) { notaLetra = "D+"; }
-        else if (media >= 63) { notaLetra = "D"; }
-        else if (media >= 60) { notaLetra = "D-"; }
-        else { notaLetra = "F"; }
-
-        Console.WriteLine($"Nombre: {alumno}\t Valores: {media} \t {notaLetra}");
-    }
+switch (product[1]){
+    case "BL":
+    color = "Black";
+    break;
+    case "MN":
+    color = "Maroon";
+    break;
+    default:
+    color = "White";
+    break;
 }
-Console.WriteLine("Press the Enter key to continue");
-Console.ReadLine();
+
+switch (product[2]){
+    case "S":
+    size = "Small";
+    break ;
+    case "M":
+    size = "Medium";
+    break;
+    case "L":
+    size = "Large";
+    break;
+    default:
+    size = "One Size Fits All";
+    break;
+}
+
+Console.WriteLine($"Product: {size} {color} {type}");
