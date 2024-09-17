@@ -1,106 +1,46 @@
-// initialize variables - graded assignments
-int examAssignments = 5;
+//Crear un array de nombres
+string[] alumnos = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
 
-int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
-int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
-int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
-int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+//Crear un array de arrays de enteros
+int[][] notas = new int[4][];
+notas[0] = new int[] { 90, 86, 87, 98, 100};
+notas[1] = new int[] { 92, 89, 81, 96, 90};
+notas[2] = new int[] { 90, 85, 87, 98, 68};
+notas[3] = new int[] { 90, 95, 87, 88, 96};
 
-// Student names
-string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+var indiceAlumno = 0;
+decimal sumaValores = 0;
 
-int[] studentScores = new int[10];
+//Mostrar los nombres y sus valores asociados
+foreach (var alumno in alumnos){
 
-string currentStudentLetterGrade = "";
+    //Calcular la suma de notas utilizando un array.sum
+    sumaValores = notas[indiceAlumno].Sum();
 
-// Write the Report Header to the console
-Console.WriteLine("Student\t\tGrade\n");
+    //Calcular la suma de notas con foreach
+        // foreach (var nota in notas[indiceAlumno]){
+        //  sumaValores = sumaValores + nota;   
+        // }
+    var media = sumaValores / (notas.Length + 1);
+    indiceAlumno++;
+    sumaValores = 0;
+    var notaLetra = "";
 
-foreach (string name in studentNames)
-{
-    string currentStudent = name;
+    if(media >= 97){ notaLetra = "A+";}
+    else if(media >= 93){ notaLetra = "A";}
+    else if(media >= 90){ notaLetra = "A-";}
+    else if(media >= 87){ notaLetra = "B+";}
+    else if(media >= 83){ notaLetra = "B";}
+    else if(media >= 80){ notaLetra = "B-";}
+    else if(media >= 77){ notaLetra = "C+";}
+    else if(media >= 73){ notaLetra = "C";}
+    else if(media >= 70){ notaLetra = "C-";}
+    else if(media >= 67){ notaLetra = "D+";}
+    else if(media >= 63){ notaLetra = "D";}
+    else if(media >= 60){ notaLetra = "D-";}
+    else { notaLetra = "F";}
 
-    if (currentStudent == "Sophia")
-       studentScores = sophiaScores;
-
-    else if (currentStudent == "Andrew")
-        studentScores = andrewScores;
-
-    else if (currentStudent == "Emma")
-        studentScores = emmaScores;
-
-    else if (currentStudent == "Logan")
-        studentScores = loganScores;
-
-    // initialize/reset the sum of scored assignments
-    int sumAssignmentScores = 0;
-
-    // initialize/reset the calculated average of exam + extra credit scores
-    decimal currentStudentGrade = 0;
-
-    // initialize/reset a counter for the number of assignment 
-    int gradedAssignments = 0;
-
-    // loop through the scores array and complete calculations for currentStudent
-    foreach (int score in studentScores)
-    {
-        // increment the assignment counter
-        gradedAssignments += 1;
-
-        if (gradedAssignments <= examAssignments)
-            // add the exam score to the sum
-            sumAssignmentScores += score;
-
-        else
-            // add the extra credit points to the sum - bonus points equal to 10% of an exam score
-            sumAssignmentScores += score / 10;
-    }
-
-    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
-
-    if (currentStudentGrade >= 97)
-        currentStudentLetterGrade = "A+";
-
-    else if (currentStudentGrade >= 93)
-        currentStudentLetterGrade = "A";
-
-    else if (currentStudentGrade >= 90)
-        currentStudentLetterGrade = "A-";
-
-    else if (currentStudentGrade >= 87)
-        currentStudentLetterGrade = "B+";
-
-    else if (currentStudentGrade >= 83)
-        currentStudentLetterGrade = "B";
-
-    else if (currentStudentGrade >= 80)
-        currentStudentLetterGrade = "B-";
-
-    else if (currentStudentGrade >= 77)
-        currentStudentLetterGrade = "C+";
-
-    else if (currentStudentGrade >= 73)
-        currentStudentLetterGrade = "C";
-
-    else if (currentStudentGrade >= 70)
-        currentStudentLetterGrade = "C-";
-
-    else if (currentStudentGrade >= 67)
-        currentStudentLetterGrade = "D+";
-
-    else if (currentStudentGrade >= 63)
-        currentStudentLetterGrade = "D";
-
-    else if (currentStudentGrade >= 60)
-        currentStudentLetterGrade = "D-";
-
-    else
-        currentStudentLetterGrade = "F";
-
-    //Console.WriteLine("Student\t\tGrade\tLetter Grade\n");
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
+    Console.WriteLine($"Nombre: {alumno}\t Valores: {media} \t {notaLetra}");
 }
-
-// required for running in VS Code (keeps the Output windows open to view results)
-Console.WriteLine("\n\rPress the Enter key to continue");
+Console.WriteLine("Press the Enter key to continue");
 Console.ReadLine();
