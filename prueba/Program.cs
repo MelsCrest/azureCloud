@@ -1,58 +1,33 @@
-// SKU = Stock Keeping Unit. 
-// SKU value format: <product #>-<2-letter color code>-<size code>
-using System.Diagnostics;
+// //operador igualdad ==
+// Console.WriteLine("a" == "a");
+// Console.WriteLine("a" == "A");
+// Console.WriteLine(1 == 2);
 
-string sku = "01-MN-L"; //datos del producto - Sweat shirt Maroon Large
+// string myValue = "a";
+// Console.WriteLine(myValue == "a");
+/* ************************ */
+// string value1 = " a";
+// string value2 = "A ";
+// Console.WriteLine(value1.Trim().ToLower() == value2.Trim().ToLower());
 
-string[] product = sku.Split('-');
+/* ************************ */
+// //operador desigual !=
+// Console.WriteLine("a" != "a");
+// Console.WriteLine("a" != "A");
+// Console.WriteLine(1 != 2);
 
-string type = "";
-string color = "";
-string size = "";
+// string myValue2 = "a";
+// Console.WriteLine(myValue2 != "a");
 
-switch (product[0]){
-    case "01":
-    type = "Sweat shirt";
-    break;
+/* ******************** */
+// //negacion lógica !var
+// string pangram = "The quick brown fox jumps over the lazy dog.";
+// Console.WriteLine(!pangram.Contains("fox"));
+// Console.WriteLine(!pangram.Contains("cow"));
 
-    case "02":
-    type = "T-Shirt";
-    break;
-
-    case "03":
-    type = "Sweat pants";
-    break;
-
-    default:
-    type = "Other";
-    break;
-}
-
-switch (product[1]){
-    case "BL":
-    color = "Black";
-    break;
-    case "MN":
-    color = "Maroon";
-    break;
-    default:
-    color = "White";
-    break;
-}
-
-switch (product[2]){
-    case "S":
-    size = "Small";
-    break ;
-    case "M":
-    size = "Medium";
-    break;
-    case "L":
-    size = "Large";
-    break;
-    default:
-    size = "One Size Fits All";
-    break;
-}
-
-Console.WriteLine($"Product: {size} {color} {type}");
+/* ******************** */
+//operador ternario
+int saleAmount = 1001;
+int discount = saleAmount > 1000 ? 100 : 50;
+// si el saldo es mayor a 1000 imprime 100 sino imprime 50 
+Console.WriteLine($"Discount: {discount}");
