@@ -1,44 +1,28 @@
-//operador ternario
-string permission = "Manager"; //Elegir entre Admin o Manager
-int level = 55;
+// #region prueba de lo que es un region
+// //si es solo una línea de código se puede escribir todo junto
+// if(true){Console.WriteLine("Hola mundo");};
+// #endregion
 
-string message = permission.Contains("Admin") 
-    ? (level > 55 ? "Welcome, Super Admin user." : "Welcome, Admin user.")
-    : (permission.Contains("Manager") 
-        ? (level >= 20 ? "Contact an Admin for access." : "You do not have sufficient privileges.")
-        : "You do not have sufficient privileges.");
-
-Console.WriteLine(message);
-
-/* ********************** */
-//con if else if else
-
-// string permiso = "Admin|Manager"; //Elegir entre Admin o Manager
-// int nivel = 53;
-
-// if (permiso.Contains("Admin"))
+// //No usar un "break" usar otra condición en el for o usar otro tipo de bucle. Se puede usar porque no es buena práctica. Un break interrumpe el flujo del código.
+// for (int i = 0; i < 10; i++)
 // {
-//     if (nivel > 55)
-//     {
-//         Console.WriteLine("Welcome, Super Admin user.");
-//     }
-//     else
-//     {
-//         Console.WriteLine("Welcome, Admin user.");
-//     }
+//     Console.WriteLine(i);
+//     if (i == 7) break;
 // }
-// else if (permiso.Contains("Manager"))
+
+// //los foreach son solo de lectura (solo recuperan datos). No se puede escribir en ellos
+// string[] names = { "Alex", "Eddie", "David", "Michael" };
+// foreach (var name in names)
 // {
-//     if (nivel >= 20)
-//     {
-//         Console.WriteLine("Contact an Admin for access.");
-//     }
-//     else
-//     {
-//         Console.WriteLine("You do not have sufficient privileges.");
-//     }
+//     // Can't do this:
+//     if (name == "David") name = "Sammy";
 // }
-// else
-// {
-//     Console.WriteLine("You do not have sufficient privileges.");
-// }
+
+string[] names = { "Alex", "Eddie", "David", "Michael" };
+foreach (var name in names) //leerá toda la lista de nombres
+{
+    if (name == "David") names[2] = "Sammy";
+    Console.WriteLine(name);
+}
+    Console.WriteLine(names[2]); //una vez terminado el bucle de lectura es cuando hace el cambio de David a Sammy
+
