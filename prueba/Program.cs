@@ -1,28 +1,22 @@
-// #region prueba de lo que es un region
-// //si es solo una línea de código se puede escribir todo junto
-// if(true){Console.WriteLine("Hola mundo");};
-// #endregion
 
-// //No usar un "break" usar otra condición en el for o usar otro tipo de bucle. Se puede usar porque no es buena práctica. Un break interrumpe el flujo del código.
-// for (int i = 0; i < 10; i++)
-// {
-//     Console.WriteLine(i);
-//     if (i == 7) break;
+// for(int i=1;i<=100;i++){
+//     if(i % 3 == 0){
+//         Console.WriteLine(i + " Fizz");
+//     }else if(i % 5 == 0){
+//         Console.WriteLine(i + " Buzz");
+//     }else if(i % 3 == 0 && i % 5 == 0){
+//         Console.WriteLine(i + " FizzBuzz");
+//     }else{
+//         Console.WriteLine(i);
+//     }
 // }
+// Opción 2
+for(int i=1;i<=100;i++){
+    //var resultado = i.ToString;
+    var resultado = (i % 3 == 0 && i % 5 == 0) ? " FizzBuzz":
+                    (i % 3 == 0) ? " Fizz":
+                    (i % 5 == 0) ? " Buzz" : "";
 
-// //los foreach son solo de lectura (solo recuperan datos). No se puede escribir en ellos
-// string[] names = { "Alex", "Eddie", "David", "Michael" };
-// foreach (var name in names)
-// {
-//     // Can't do this:
-//     if (name == "David") name = "Sammy";
-// }
-
-string[] names = { "Alex", "Eddie", "David", "Michael" };
-foreach (var name in names) //leerá toda la lista de nombres
-{
-    if (name == "David") names[2] = "Sammy";
-    Console.WriteLine(name);
+                    Console.WriteLine(i + resultado);
 }
-    Console.WriteLine(names[2]); //una vez terminado el bucle de lectura es cuando hace el cambio de David a Sammy
-
+//var resultado = i.toString; de esta manera a "var" le decimos que su tipo sea "String", es una declaración explicita. Y String, porque lo que imprimimos por pantalla es una cadena de texto.
