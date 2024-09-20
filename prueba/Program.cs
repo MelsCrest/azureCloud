@@ -1,32 +1,35 @@
-﻿//cambiar el idioma
-// using System.Globalization;
-// CultureInfo.CurrentCulture=(new CultureInfo("en-US"));
-//si se hiciera en una app de escritorio habría que confirmar que el lenguaje es el apropiado para que no de error al seleccionar el idioma y que aparezcan los símbolos
+﻿using System.Globalization;
+CultureInfo.CurrentCulture = new CultureInfo("en-US");
+string customerName = "Ms. Barros";
 
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
 
-// decimal price = 123.45m;
-// int discount = 50;
-// Console.WriteLine($"Price: {price:C} (Save {discount:C})");//:C muestra el formato de la moneda correspondiente a sistema de referencia cultural que tenga nuestro ordenador
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
 
-// measurement = 123456.78912m;
-//Console.WriteLine($"Measurement: {measurement:N4} units");//:N muestra 2 decimales después de la coma . Si a continuación ponemos un número :N4 saldrán 4 decimales después de la coma.
-//Sin el System.Globalization
+Console.WriteLine($@"Dear {customerName}, 
+As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.
+Currently, you own {currentShares:N} shares at a return of {currentReturn:P}.
+Our new product, {newProduct} offers a return of {newReturn:P}.  Given your current volume, your potential profit would be {newProfit:C}.
+Here's a quick comparison:
+");
 
-//decimal tax = .36785m;
-//Console.WriteLine($"Tax rate: {tax:P1}"); //:P da formato de los porcentajes. El número que se ponga a continuación mostrará el número de valores que saldrán como decimales.
+string comparisonMessage = "";
 
-//string input = "Pad this";
-//string input2 = "Pad this too, please";
-//Console.WriteLine(input.PadLeft(25, '-')); //PadLeft(número de caracteres que se quieren, qué se quiere añadir) Añade espacios, o en este caso -, a la izquierda hasta completar 12 caracteres contando los caracteres del String
-//Console.WriteLine(input2.PadRight(25, '-'));//PadRight lo mismo pero en el lado derecho
-//Esto permite que todos los datos que se imprimen queden alineados
+comparisonMessage = currentProduct.PadRight(20);
+comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
+//Para no crear variables que almacenen todos los datos modificados (P, N, C) y luego añadirle el PadRight();
+//Con String.Format("cadena de formato", argumentos);
+//String.Format("{0:P}, currentReturn) -- 0  será sustituido por 'currentReturn' al que se le aplicará ':P'
+comparisonMessage += String.Format("{0:C}", currentProfit).PadRight(20);
+//comparisonMessage += $"currentProfit.toString(:C).PadRight(20)";
+comparisonMessage += "\n";
+comparisonMessage += newProduct.PadRight(20);
+comparisonMessage += String.Format("{0:P}", newReturn).PadRight(10);
+comparisonMessage += String.Format("{0:C}", newProfit).PadRight(20);
 
-string paymentId = "769C";
-string payeeName = "Mr. Stephen Ortega";
-string paymentAmount = "$5,000.00";
-
-var formattedLine = paymentId.PadRight(6);
-formattedLine += payeeName.PadRight(24);
-formattedLine += paymentAmount.PadLeft(10);
-
-Console.WriteLine(formattedLine); //se crea una variable "formattedLine" para almacenar todos los valores del Pad y conseguir una cadena de texto de 40 caracteres hecha con 3 variables distintas. En la primera y la última se pondrá la dirección (Left o Right) que corresponda. 
+Console.WriteLine(comparisonMessage);
