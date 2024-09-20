@@ -1,10 +1,26 @@
-﻿const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+﻿//Console.WriteLine(DateTime.Now.ToLongTimeString()); //Hora de aquí
+//Console.WriteLine(DateTime.UtcNow.ToLongTimeString()); //Hora meridiano de 
+/* ******* 
+Importante al programar usar el meridiano de Greenwich.
+Al final se usará la hora del usuario.
+******* */
+// Console.WriteLine(DateTime.UtcNow.ToShortDateString()); //Fecha
+// Console.WriteLine(DateTime.Now); //hora y 
+// Console.WriteLine(DateTime.Now.ToString("dd-MM-yy HH:mm:ss.ff"));
 
-string quantity = input.Substring(input.IndexOf("5000"),4);
-string output = input.Substring(input.IndexOf("<div>")+5,input.Length - 11).Replace("&trade", "&reg");
+//Para añadir o quitar usar los ADD
+//Para comparar usar los Get??
 
-Console.WriteLine(quantity);
-Console.WriteLine(output);
+// var hoy = DateTime.UtcNow;
 
-//IndexOf() le permitía identificar la posición de un carácter o cadena dentro de otra cadena.
-//IndexOfAny() para buscar la posición de cualquier valor de una matriz de char especificada
+// Console.WriteLine(hoy.AddMonths(1).AddDays(30));
+
+
+var hoy = new DateTime(2024,05,31);
+//Console.WriteLine(hoy.AddMonths(1));
+
+Console.WriteLine(hoy.AddMonths(1).Ticks); //Ticks muestra desde el 1/01/70 muestra todos los milisegundos que han pasado. Se trabaja con ello para obtener más precisión que con DateTime.
+
+//TimeSpan para sacar un intervalo de fechas desde un punto a otro.
+
+Thread.Sleep(1000); //marca una pausa con el tiempo que indiquemos
