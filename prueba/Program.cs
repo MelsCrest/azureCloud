@@ -1,35 +1,56 @@
-﻿using System.Globalization;
-CultureInfo.CurrentCulture = new CultureInfo("en-US");
-string customerName = "Ms. Barros";
+﻿// INDEXOF() - .IndexOf('caracter') - Mostrará la posición en la cadena de ese caracter. Empezará a contar desde 0.
+// string message = "Find what is (inside the parentheses)";
 
-string currentProduct = "Magic Yield";
-int currentShares = 2975000;
-decimal currentReturn = 0.1275m;
-decimal currentProfit = 55000000.0m;
+// int openingPosition = message.IndexOf('(');
+// int closingPosition = message.IndexOf(')');
 
-string newProduct = "Glorious Future";
-decimal newReturn = 0.13125m;
-decimal newProfit = 63000000.0m;
+// Console.WriteLine(openingPosition);
+// Console.WriteLine(closingPosition);
+/* ************************************ */
 
-Console.WriteLine($@"Dear {customerName}, 
-As a customer of our {currentProduct} offering we are excited to tell you about a new financial product that would dramatically increase your return.
-Currently, you own {currentShares:N} shares at a return of {currentReturn:P}.
-Our new product, {newProduct} offers a return of {newReturn:P}.  Given your current volume, your potential profit would be {newProfit:C}.
-Here's a quick comparison:
-");
+// SUBSTRING() - .Substring(var, var); - Mostrará lo que se encuentre dentro de esas variables que contienen .IndexOf() que indican la posición.
+// string message = "Find what is (inside the parentheses)";
 
-string comparisonMessage = "";
+// int openingPosition = message.IndexOf('(');
+// int closingPosition = message.IndexOf(')');
 
-comparisonMessage = currentProduct.PadRight(20);
-comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
-//Para no crear variables que almacenen todos los datos modificados (P, N, C) y luego añadirle el PadRight();
-//Con String.Format("cadena de formato", argumentos);
-//String.Format("{0:P}, currentReturn) -- 0  será sustituido por 'currentReturn' al que se le aplicará ':P'
-comparisonMessage += String.Format("{0:C}", currentProfit).PadRight(20);
-//comparisonMessage += $"currentProfit.toString(:C).PadRight(20)";
-comparisonMessage += "\n";
-comparisonMessage += newProduct.PadRight(20);
-comparisonMessage += String.Format("{0:P}", newReturn).PadRight(10);
-comparisonMessage += String.Format("{0:C}", newProfit).PadRight(20);
+// openingPosition += 1;
 
-Console.WriteLine(comparisonMessage);
+// int length = closingPosition - openingPosition;
+// Console.WriteLine(message.Substring(openingPosition, length));
+
+/* ************************************ */
+// INDEXOF() Y SUBSTRING()
+// string message = "What is the value <span>between the tags</span>?";
+
+// const string openSpan = "<span>";
+// const string closeSpan = "</span>";
+
+// int openingPosition = message.IndexOf(openSpan);
+// int closingPosition = message.IndexOf(closeSpan);
+
+// openingPosition += openSpan.Length;
+// int length = closingPosition - openingPosition;
+// Console.WriteLine(message.Substring(openingPosition, length));
+
+/* ************************************ */
+// INDEXOF() Y LASTINDEXOF() - IndexOf - LastIndexOf -- Primer y ultimo caracter
+// string message = "hello there!";
+
+// int first_h = message.IndexOf('h');
+// int last_h = message.LastIndexOf('h');
+
+// Console.WriteLine($"For the message: '{message}', the first 'h' is at position {first_h} and the last 'h' is at position {last_h}.");
+
+/* ************************************ */
+// REMOVE() - Remove(inicio, final) - Elimina todo aquello que se encuentre dentro de los valores indicados como parámetros. La longitud a borrar a de coincidir con el tamaño del string
+// string data = "12345John Smith          5000  3  ";
+// string updatedData = data.Remove(5, 20);
+// Console.WriteLine(updatedData);
+
+/* ************************************ */
+// REPLACE() - Replace("esto", "por esto") - Reemplaza un dato que indicamos como primer parámetro por el dato que indicamos como segundo parámetro
+string message = "This--is--ex-amp-le--da-ta";
+message = message.Replace("--", " ");
+message = message.Replace("-", "");
+Console.WriteLine(message);
