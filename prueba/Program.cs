@@ -1,68 +1,44 @@
-﻿// string[] students = {"Jenna", "Ayesha", "Carlos", "Viktor"};
+﻿string[] guestList = { "Rebecca", "Nadia", "Noor", "Jonte" };
+string[] rsvps = new string[10];
+int count = 0;
 
-// DisplayStudents(students);
-// DisplayStudents(new string[] {"Robert","Vanya"});
+RSVP("Rebecca", 1, "none", true);
+RSVP("Nadia", 2, "Nuts", true);
+RSVP("Linh", 2, "none", false);
+RSVP("Tony", 1, "Jackfruit", true);
+RSVP("Noor", 4, "none", false);
+RSVP("Jonte", 2, "Stone fruit", false);
+ShowRSVPs();
 
-// void DisplayStudents(string[] students) 
-// {
-//     foreach (string student in students) 
-//     {
-//         Console.Write($"{student}, ");
-//     }
-//     Console.WriteLine();
-// }
-
-// PrintCircleArea(12);
-
-// void PrintCircleArea(int radius)
-// {
-//     double pi = 3.14159;
-//     double area = pi * (radius * radius);
-//     Console.WriteLine($"Area = {area}");
-// }
-/* ************************** */
-// PrintCircleArea(12);
-
-// void PrintCircleArea(int radius)
-// {
-//     double pi = 3.14159;
-//     double area = pi * (radius * radius);
-//     Console.WriteLine($"Area = {area}");
-// }
-
-//Aparecen mensajes de error informando de que los nombres pi y radius no existen en el ámbito actual. Esas variables solo existen dentro del ámbito del método PrintCircleArea.
-// PrintCircleArea(12); 
-// double circumference = 2 * pi * radius;
-
-/* ***************** */
-// void PrintCircleCircumference(int radius)
-// {
-//     double pi = 3.14159;
-//     double circumference = 2 * pi * radius;
-//     Console.WriteLine($"Circumference = {circumference}");
-// }
-
-/* ***************** */
-double pi = 3.14159;
-
-void PrintCircleArea(int radius)
+void RSVP(string name, int partySize, string allergies, bool inviteOnly)
 {
-    double area = pi * (radius * radius);
-    Console.WriteLine($"Area = {area}");
+    if (inviteOnly)
+    {
+        bool found = false;
+        foreach (string guest in guestList)
+        {
+            if (guest.Equals(name))
+            {
+                found = true;
+                break;
+            }
+        }
+        if (!found)
+        {
+            Console.WriteLine($"Sorry, {name} is not on the guest list");
+            return;
+        }
+    }
+
+    rsvps[count] = $"Name: {name}, \tParty Size: {partySize}, \tAllergies: {allergies}";
+    count++;
 }
 
-void PrintCircleCircumference(int radius)
+void ShowRSVPs()
 {
-    double circumference = 2 * pi * radius;
-    Console.WriteLine($"Circumference = {circumference}");
-}
-
-PrintCircleInfo(12);
-PrintCircleInfo(24);
-
-void PrintCircleInfo(int radius) 
-{
-    Console.WriteLine($"Circle with radius {radius}");
-    PrintCircleArea(radius);
-    PrintCircleCircumference(radius);
+    Console.WriteLine("\nTotal RSVPs:");
+    for (int i = 0; i < count; i++)
+    {
+        Console.WriteLine(rsvps[i]);
+    }
 }
