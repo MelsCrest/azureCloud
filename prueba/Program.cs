@@ -3,15 +3,16 @@ string[] rsvps = new string[10];
 int count = 0;
 
 RSVP("Rebecca", 1, "none", true);
-RSVP("Nadia", 2, "Nuts", true);
-RSVP("Linh", 2, "none", false);
-RSVP("Tony", 1, "Jackfruit", true);
-RSVP("Noor", 4, "none", false);
-RSVP("Jonte", 2, "Stone fruit", false);
+// RSVP("Nadia", 2, "Nuts", true);
+// RSVP("Linh", 2, "none", false);
+// RSVP("Tony", 1, "Jackfruit", true);
+// RSVP("Noor", 4, "none", false);
+// RSVP("Jonte", 2, "Stone fruit", false);
 ShowRSVPs();
 
 void RSVP(string name, int partySize, string allergies, bool inviteOnly)
 {
+    int.TryParse(Console.ReadLine(), out partySize);
     if (inviteOnly)
     {
         bool found = false;
