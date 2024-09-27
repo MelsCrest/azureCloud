@@ -1,26 +1,36 @@
-﻿//Console.WriteLine(DateTime.Now.ToLongTimeString()); //Hora de aquí
-//Console.WriteLine(DateTime.UtcNow.ToLongTimeString()); //Hora meridiano de 
-/* ******* 
-Importante al programar usar el meridiano de Greenwich.
-Al final se usará la hora del usuario.
-******* */
-// Console.WriteLine(DateTime.UtcNow.ToShortDateString()); //Fecha
-// Console.WriteLine(DateTime.Now); //hora y 
-// Console.WriteLine(DateTime.Now.ToString("dd-MM-yy HH:mm:ss.ff"));
+﻿//-----------  METODOS  -----------
+// fechas ();
+// void fechas(){
+//     var fecha = new DateTime(2024, 05, 31);
+//     Console.WriteLine (fecha.AddMonths(1).Ticks);
+//     Thread.Sleep(1000);
+//     fecha = new DateTime(01, 05, 2024);
+// }
+/* ***************************** */
+// for(int i = 0; i < 3; i++){
+//     Console.WriteLine(HolaMundo());
+// }
 
-//Para añadir o quitar usar los ADD
-//Para comparar usar los Get??
+// string HolaMundo(){
+//     return "Hola Mundo";
+// }
+/* ***************************** */
+// int[] numeros = {1,2,3,4,5};
 
-// var hoy = DateTime.UtcNow;
+// Console.WriteLine("Contents of Array:");
+// PrintArray();
 
-// Console.WriteLine(hoy.AddMonths(1).AddDays(30));
+// void PrintArray()
+// {
+//     foreach (var numero in numeros)
+//     {
+//         Console.Write($"{numero} ");
+//     }
+//     Console.WriteLine();
+// }
 
+//Independientemente de donde coloquemos el método, se le llamará primero. Pero primero se declara el array, si o si.
+//Los métodos es mejor que empiecen con mayúscula.
 
-var hoy = new DateTime(2024,05,31);
-//Console.WriteLine(hoy.AddMonths(1));
-
-Console.WriteLine(hoy.AddMonths(1).Ticks); //Ticks muestra desde el 1/01/70 muestra todos los milisegundos que han pasado. Se trabaja con ello para obtener más precisión que con DateTime.
-
-//TimeSpan para sacar un intervalo de fechas desde un punto a otro.
-
-Thread.Sleep(1000); //marca una pausa con el tiempo que indiquemos
+// void ShowData(string a, int b, int c); // Menos claro
+// void DisplayDate(string month, int day, int year); //Más claro
