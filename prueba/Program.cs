@@ -1,153 +1,93 @@
-﻿// using System;
+﻿//COMPILAR CÓDIGO CON MÉTODOS
 
-// int[] times = {800, 1200, 1600, 2000};
-// int diff = 0;
+// string[] ipv4Input = {"107.31.1.5", "255.0.0.255", "555..0.555", "255...255"};
+// string[] address;
+// bool validLength = false;
+// bool validZeroes = false;
+// bool validRange = false;
 
-// Console.WriteLine("Enter current GMT");
-// int currentGMT = Convert.ToInt32(Console.ReadLine());
-
-// Console.WriteLine("Current Medicine Schedule:");
-
-// /* Format and display medicine times */
-// foreach (int val in times)
+// foreach (string ip in ipv4Input) 
 // {
-//     string time = val.ToString();
-//     int len = time.Length;
+//     address = ip.Split(".", StringSplitOptions.RemoveEmptyEntries);
 
-//     if (len >= 3)
+//     ValidateLength(); 
+//     ValidateZeroes(); 
+//     ValidateRange();
+
+//     if (validLength && validZeroes && validRange) 
 //     {
-//         time = time.Insert(len - 2, ":");
-//     }
-//     else if (len == 2)
+//         Console.WriteLine($"{ip} is a valid IPv4 address");
+//     } 
+//     else 
 //     {
-//         time = time.Insert(0, "0:");
-//     }
-//     else
-//     {
-//         time = time.Insert(0, "0:0");
-//     }
-
-//     Console.Write($"{time} ");
-// }
-
-// Console.WriteLine();
-
-// Console.WriteLine("Enter new GMT");
-// int newGMT = Convert.ToInt32(Console.ReadLine());
-
-// if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12) //Math.Abs() muestra el valor absoluto
-// {
-//     Console.WriteLine("Invalid GMT");
-// }
-// else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
-// {
-//     diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
-
-//     /* Adjust the times by adding the difference, keeping the value within 24 hours */
-//     for (int i = 0; i < times.Length; i++) 
-//     {
-//         times[i] = ((times[i] + diff)) % 2400;
-//     }
-// } 
-// else 
-// {
-//     diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
-
-//     /* Adjust the times by adding the difference, keeping the value within 24 hours */
-//     for (int i = 0; i < times.Length; i++) 
-//     {
-//         times[i] = ((times[i] + diff)) % 2400;
+//         Console.WriteLine($"{ip} is an invalid IPv4 address");
 //     }
 // }
 
-// Console.WriteLine("New Medicine Schedule:");
-
-// /* Format and display medicine times */
-// foreach (int val in times)
+// void ValidateLength() 
 // {
-//     string time = val.ToString();
-//     int len = time.Length;
+//     validLength = address.Length == 4;
+// };
 
-//     if (len >= 3)
+// void ValidateZeroes() 
+// {
+//     foreach (string number in address) 
 //     {
-//         time = time.Insert(len - 2, ":");
-//     }
-//     else if (len == 2)
-//     {
-//         time = time.Insert(0, "0:");
-//     }
-//     else
-//     {
-//         time = time.Insert(0, "0:0");
+//         if (number.Length > 1 && number.StartsWith("0")) 
+//         {
+//             validZeroes = false;
+//             return;
+//         }
 //     }
 
-//     Console.Write($"{time} ");
+//     validZeroes = true;
 // }
 
-// Console.WriteLine();
+// void ValidateRange() 
+// {
+//     foreach (string number in address) 
+//     {
+//         int value = int.Parse(number);
+//         if (value < 0 || value > 255) 
+//         {
+//             validRange = false;
+//             return;
+//         }
+//     }
+//     validRange = true;
+// }
+/* ********************************* */
 
-/* *********** CÓDIGO CON MÉTODOS ********* */
-int[] times = {800, 1200, 1600, 2000};
-int diff = 0;
+var ip = "1.134.45.34";
+var numbers = ip.Split('.');
 
-Console.WriteLine("Enter current GMT");
-int currentGMT = Convert.ToInt32(Console.ReadLine());
-
-Console.WriteLine("Current Medicine Schedule:");
-DisplayTimes();
-
-Console.WriteLine("Enter new GMT");
-int newGMT = Convert.ToInt32(Console.ReadLine());
-
-if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
-{
-    Console.WriteLine("Invalid GMT");
+bool ValidateLength(){
+    return numbers.Length == 4;
 }
-else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+
+bool ValidateZeroes(){
+    foreach(var number in numbers){
+        if(number.Length > 1 && number[0] == '0'){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool ValidateRange(){
+    foreach(var number in numbers){
+        if(int.Parse(number) < 0 || int.Parse(number) > 255){
+            return false;
+        }
+    }
+    return true;
+}
+
+if (ValidateLength() && ValidateZeroes() && ValidateRange()) 
 {
-    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
-    AdjustTimes();
+    Console.WriteLine($"{ip} ip is a valid IPv4 address");
 } 
 else 
 {
-    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
-    AdjustTimes();
-}
-
-Console.WriteLine("New Medicine Schedule:");
-DisplayTimes();
-
-void DisplayTimes()
-{
-    /* Format and display medicine times */
-    foreach (int val in times)
-    {
-        string time = val.ToString();
-        int len = time.Length;
-
-        if (len >= 3)
-        {
-            time = time.Insert(len - 2, ":");
-        }
-        else if (len == 2)
-        {
-            time = time.Insert(0, "0:");
-        }
-        else
-        {
-            time = time.Insert(0, "0:0");
-        }
-
-        Console.Write($"{time} ");
-    }
-    Console.WriteLine();
-}
-
-void AdjustTimes() 
-{
-    /* Adjust the times by adding the difference, keeping the value within 24 hours */
-    for (int i = 0; i < times.Length; i++) 
-    {
-        times[i] = ((times[i] + diff)) % 2400;
-    }
+    Console.WriteLine($"{ip} ip is an invalid IPv4 address");
 }
