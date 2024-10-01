@@ -1,45 +1,53 @@
-﻿string[] guestList = { "Rebecca", "Nadia", "Noor", "Jonte" };
-string[] rsvps = new string[10];
-int count = 0;
+﻿String nombreIntroducido = "Melisa";
+int edadIntroducida = 21; 
+SayHello(nombreIntroducido, edadIntroducida);
 
-RSVP("Rebecca", 1, "none", true);
-// RSVP("Nadia", 2, "Nuts", true);
-// RSVP("Linh", 2, "none", false);
-// RSVP("Tony", 1, "Jackfruit", true);
-// RSVP("Noor", 4, "none", false);
-// RSVP("Jonte", 2, "Stone fruit", false);
-ShowRSVPs();
-
-void RSVP(string name, int partySize, string allergies, bool inviteOnly)
+void SayHello(String nombre, int edad)
 {
-    int.TryParse(Console.ReadLine(), out partySize);
-    if (inviteOnly)
-    {
-        bool found = false;
-        foreach (string guest in guestList)
-        {
-            if (guest.Equals(name))
-            {
-                found = true;
-                break;
-            }
-        }
-        if (!found)
-        {
-            Console.WriteLine($"Sorry, {name} is not on the guest list");
-            return;
-        }
-    }
+    Console.WriteLine("Hola " + nombre + ", tu edad es " + edad);
+};
 
-    rsvps[count] = $"Name: {name}, \tParty Size: {partySize}, \tAllergies: {allergies}";
-    count++;
+Console.Clear();
+
+int num1 = 5, num2 = 7, num3 = 8;
+int resultadoS = 0, resultadoR = 0, resultadoM = 0;
+Suma(num1, 9);
+Resta(num3, num2);
+Multiplica(num3, 1);
+ImprimirResultado(resultadoS);
+ImprimirResultado(resultadoR);
+ImprimirResultado(resultadoM);
+
+void Suma(int a, int b)
+{
+    resultadoS = a + b;
+};
+
+void Resta(int a, int b){
+    resultadoR = a - b;
+};
+
+void Multiplica(int a, int b){
+    resultadoM = a * b;
+};
+
+void ImprimirResultado(int resultado){
+    Console.WriteLine(resultado);
 }
 
-void ShowRSVPs()
+Console.Clear();
+
+int[] a = {1,2,3,4,5};
+int[] b = {6,7,8,9,10};
+Console.WriteLine("Contents of Array:");
+PrintArray(a);
+PrintArray(b);
+
+void PrintArray(int[] array)
 {
-    Console.WriteLine("\nTotal RSVPs:");
-    for (int i = 0; i < count; i++)
+    foreach (int x in array)
     {
-        Console.WriteLine(rsvps[i]);
+        Console.Write($"{x} ");
     }
+    Console.WriteLine();
 }
